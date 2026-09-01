@@ -1,24 +1,74 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { BrandIntro } from "@/components/BrandIntro";
+import { WhyChooseHeaven } from "@/components/WhyChooseHeaven";
+import { Collections } from "@/components/Collections";
+import { BespokeHighlight } from "@/components/BespokeHighlight";
+import { SocialProof } from "@/components/SocialProof";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Heaven Furniture Mart | Bespoke Furniture & Interior Styling";
+const description =
+  "Luxury bespoke furniture and interior styling in Chattogram, Bangladesh. Designed, crafted and customized around your space, size and taste.";
+
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FurnitureStore",
+          name: "Heaven Furniture Mart",
+          description,
+          telephone: "+880 1960-481983",
+          email: "heavenfurnituremart@gmail.com",
+          foundingDate: "2020",
+          founder: { "@type": "Person", name: "Abul Kalam Bhuiyan" },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Agrabad Access Road",
+            addressLocality: "Chattogram",
+            addressCountry: "BD",
+          },
+          sameAs: [
+            "https://facebook.com/HeavenFurnitureMart",
+            "https://instagram.com/heavenfurnitureltd",
+            "https://youtube.com/@HeavenFurnitureMart",
+          ],
+        }),
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <BrandIntro />
+        <WhyChooseHeaven />
+        <Collections />
+        <BespokeHighlight />
+        <SocialProof />
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
   );
 }
