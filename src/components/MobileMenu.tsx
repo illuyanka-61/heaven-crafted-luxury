@@ -27,8 +27,8 @@ export function MobileMenu({
         'a[href], button:not([disabled])',
       );
       if (!focusables?.length) return;
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
+      const first = focusables[0]!;
+      const last = focusables[focusables.length - 1]!;
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -36,6 +36,7 @@ export function MobileMenu({
         event.preventDefault();
         first.focus();
       }
+
     };
 
     document.addEventListener("keydown", onKeyDown);
