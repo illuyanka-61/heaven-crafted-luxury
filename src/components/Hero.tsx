@@ -12,8 +12,9 @@ export function Hero() {
         fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-deep/95 via-teal-deep/70 to-teal-deep/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/80 via-transparent to-teal-deep/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-teal-deep/92 via-teal-deep/55 to-teal-deep/5" />
+      <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/70 via-transparent to-teal-deep/35" />
+
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-end px-5 pt-32 pb-16 sm:px-8 lg:justify-center lg:pb-28">
         <div className="max-w-2xl">
