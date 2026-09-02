@@ -17,8 +17,10 @@ export function CollectionCard({
 }) {
   return (
     <article
-      className={`zoom-media group relative isolate ${
-        feature ? "min-h-[26rem] sm:min-h-[34rem] lg:min-h-full" : "min-h-[15rem] sm:min-h-[17rem]"
+      className={`zoom-media group relative isolate h-full w-full ${
+        feature
+          ? "min-h-[26rem] sm:min-h-[34rem] lg:min-h-[36rem]"
+          : "min-h-[16rem] sm:min-h-[17.5rem]"
       }`}
     >
       <img
@@ -30,7 +32,8 @@ export function CollectionCard({
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/85 via-teal-deep/25 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/92 via-teal-deep/45 to-teal-deep/5 transition-opacity duration-500 group-hover:opacity-90" />
+
 
       <div className="relative flex h-full flex-col justify-end p-6 sm:p-8">
         <p className="eyebrow text-brass">{collection.number}</p>

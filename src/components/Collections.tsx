@@ -71,21 +71,20 @@ export function Collections() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-3 lg:grid-cols-12 sm:mt-16">
-          <Reveal className="lg:col-span-7 lg:flex">
+        <div className="mt-12 grid gap-3 sm:mt-16 lg:grid-cols-12">
+          <Reveal className="lg:col-span-7">
             <CollectionCard collection={feature} feature />
           </Reveal>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:col-span-5">
             {supporting.map((collection, index) => (
-              <Reveal key={collection.number} delay={index * 80} className="flex">
-                <div className="w-full">
-                  <CollectionCard collection={collection} />
-                </div>
+              <Reveal key={collection.number} delay={index * 80}>
+                <CollectionCard collection={collection} />
               </Reveal>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
