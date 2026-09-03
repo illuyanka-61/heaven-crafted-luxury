@@ -67,6 +67,7 @@ function Index() {
         <Collections />
         <BespokeHighlight />
         <SocialProof />
+        <StoreLocation />
         <FinalCTA />
       </main>
       <Footer />
