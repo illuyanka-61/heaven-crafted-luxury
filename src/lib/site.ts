@@ -27,3 +27,9 @@ export const navItems = [
 export function whatsappLink(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
 }
+
+/** Short, polite opener used by every one-tap WhatsApp control. */
+export const whatsappGreeting =
+  `Hello ${site.name}, I'd like to ask about your furniture.`;
+
+export const whatsappHref = whatsappLink(whatsappGreeting);
