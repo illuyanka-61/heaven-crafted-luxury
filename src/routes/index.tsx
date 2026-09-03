@@ -6,6 +6,7 @@ import { WhyChooseHeaven } from "@/components/WhyChooseHeaven";
 import { Collections } from "@/components/Collections";
 import { BespokeHighlight } from "@/components/BespokeHighlight";
 import { SocialProof } from "@/components/SocialProof";
+import { StoreLocation } from "@/components/StoreLocation";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -66,6 +67,7 @@ function Index() {
         <Collections />
         <BespokeHighlight />
         <SocialProof />
+        <StoreLocation />
         <FinalCTA />
       </main>
       <Footer />
