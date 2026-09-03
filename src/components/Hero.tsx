@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero.jpg";
-import { site } from "@/lib/site";
+import { site, whatsappHref } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -21,14 +21,14 @@ export function Hero() {
           <p className="eyebrow text-brass">{site.tagline}</p>
 
           <h1 className="mt-7 font-serif text-[2.75rem] leading-[1.02] text-ivory sm:text-6xl lg:text-[5.25rem]">
-            Furniture,
+            Furniture, Made
             <br />
-            Crafted Around You
+            or Made for You
           </h1>
 
           <p className="mt-7 max-w-lg text-[0.9375rem] leading-relaxed text-ivory/75 sm:text-base">
-            Luxury bespoke furniture and interior styling from Chattogram —
-            designed around your space, style, and taste.
+            Furniture you can see in our Agrabad showroom in Chattogram, and
+            pieces crafted around your own space, size and taste.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -37,6 +37,14 @@ export function Hero() {
             </a>
             <a href="#collections" className="btn-outline">
               Explore Collections
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link self-start text-ivory/75 transition-colors duration-300 hover:text-brass sm:ml-2"
+            >
+              WhatsApp Us
             </a>
           </div>
         </div>
