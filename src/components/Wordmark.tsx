@@ -17,8 +17,8 @@ export function Wordmark({ tone = "light" }: { tone?: "light" | "dark" }) {
       <span
         className={
           tone === "light"
-            ? "eyebrow hidden text-ivory/60 sm:inline"
-            : "eyebrow hidden text-muted-foreground sm:inline"
+            ? "eyebrow hidden text-ivory/60 lg:inline"
+            : "eyebrow hidden text-muted-foreground lg:inline"
         }
       >
         Furniture Mart
