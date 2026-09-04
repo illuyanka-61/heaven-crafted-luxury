@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { navItems } from "@/lib/site";
+import { navItems, site, whatsappHref } from "@/lib/site";
 
 export function MobileMenu({
   open,
