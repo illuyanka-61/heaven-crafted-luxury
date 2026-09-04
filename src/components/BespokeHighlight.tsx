@@ -1,10 +1,23 @@
 import bespokeImage from "@/assets/bespoke.jpg";
+import { requestProjectType } from "@/lib/enquiry";
 import { Reveal } from "./Reveal";
 
 const steps = [
-  { label: "Your space", detail: "Measured room by room, corner by corner." },
-  { label: "Your dimensions", detail: "Built to fit, not adapted to fit." },
-  { label: "Your taste", detail: "Wood, finish, fabric and form, chosen by you." },
+  {
+    number: "01",
+    label: "Consult",
+    detail: "Sit with us (free). Tell us the room and what you need.",
+  },
+  {
+    number: "02",
+    label: "Design & quote",
+    detail: "We design around your space, size and taste, then quote.",
+  },
+  {
+    number: "03",
+    label: "Craft, deliver & install",
+    detail: "Made in our workshop, delivered and fitted in your room.",
+  },
 ];
 
 export function BespokeHighlight() {
