@@ -14,6 +14,7 @@ const feature: Collection = {
   alt: "Handcrafted ivory sofa with teak base and brass detail in a warm living room",
   width: 1280,
   height: 1600,
+  projectType: "Living Room",
 };
 
 const supporting: Collection[] = [
@@ -25,6 +26,7 @@ const supporting: Collection[] = [
     alt: "Bespoke upholstered bed and solid wood wardrobe in a bedroom",
     width: 1280,
     height: 1024,
+    projectType: "Bedroom",
   },
   {
     number: "03",
@@ -34,6 +36,7 @@ const supporting: Collection[] = [
     alt: "Solid wood dining table with upholstered chairs under brass pendants",
     width: 1280,
     height: 1024,
+    projectType: "Dining",
   },
   {
     number: "04",
@@ -43,6 +46,7 @@ const supporting: Collection[] = [
     alt: "Executive walnut desk with built-in bookshelves in a study",
     width: 1280,
     height: 1024,
+    projectType: "Office & Study",
   },
   {
     number: "05",
@@ -52,6 +56,7 @@ const supporting: Collection[] = [
     alt: "Craftsman finishing a bespoke wooden cabinet with brass hardware",
     width: 1280,
     height: 1600,
+    projectType: "Fully Bespoke",
   },
 ];
 
