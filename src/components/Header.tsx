@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { navItems } from "@/lib/site";
+import { navItems, whatsappHref } from "@/lib/site";
 import { Wordmark } from "./Wordmark";
 import { MobileMenu } from "./MobileMenu";
 
@@ -38,12 +38,19 @@ export function Header() {
               ))}
             </nav>
 
-            <a
-              href="#contact"
-              className="btn-outline hidden !min-h-11 md:inline-flex"
-            >
-              Request a Quote
-            </a>
+            <div className="hidden items-center gap-7 md:flex">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link text-ivory/70 transition-colors duration-300 hover:text-ivory"
+              >
+                WhatsApp
+              </a>
+              <a href="#contact" className="btn-outline !min-h-11">
+                Request a Quote
+              </a>
+            </div>
 
             <button
               type="button"

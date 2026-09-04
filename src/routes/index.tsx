@@ -9,6 +9,7 @@ import { SocialProof } from "@/components/SocialProof";
 import { StoreLocation } from "@/components/StoreLocation";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
+import { StickyContactBar } from "@/components/StickyContactBar";
 
 const title = "Heaven Furniture Mart | Bespoke Furniture & Interior Styling";
 const description =
@@ -71,6 +72,7 @@ function Index() {
         <FinalCTA />
       </main>
       <Footer />
+      <StickyContactBar />
     </>
   );
 }

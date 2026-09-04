@@ -15,7 +15,8 @@ const points = [
   },
   {
     title: "Large Agrabad showroom",
-    detail: "See and feel the work in person, here in Chattogram.",
+    detail:
+      "Visit the showroom: Agrabad Access Road, Chattogram. See and feel the work in person.",
   },
   {
     title: "Delivery & installation",

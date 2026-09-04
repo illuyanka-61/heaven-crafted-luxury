@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { navItems } from "@/lib/site";
+import { navItems, site, whatsappHref } from "@/lib/site";
 
 export function MobileMenu({
   open,
@@ -95,9 +95,33 @@ export function MobileMenu({
           ))}
         </nav>
 
-        <a href="#contact" onClick={onClose} className="btn-primary mt-auto w-full bg-brass text-accent-foreground">
-          Request a Quote
-        </a>
+        <div className="mt-auto pt-10">
+          <div className="grid grid-cols-2 gap-3">
+            <a
+              href={`tel:${site.phoneHref}`}
+              onClick={onClose}
+              className="btn-outline w-full"
+            >
+              Call
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="btn-outline w-full"
+            >
+              WhatsApp
+            </a>
+          </div>
+          <a
+            href="#contact"
+            onClick={onClose}
+            className="btn-primary mt-3 w-full bg-brass text-accent-foreground"
+          >
+            Request a Quote
+          </a>
+        </div>
       </div>
     </div>
   );

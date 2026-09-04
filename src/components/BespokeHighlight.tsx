@@ -1,10 +1,23 @@
 import bespokeImage from "@/assets/bespoke.jpg";
+import { requestProjectType } from "@/lib/enquiry";
 import { Reveal } from "./Reveal";
 
 const steps = [
-  { label: "Your space", detail: "Measured room by room, corner by corner." },
-  { label: "Your dimensions", detail: "Built to fit, not adapted to fit." },
-  { label: "Your taste", detail: "Wood, finish, fabric and form, chosen by you." },
+  {
+    number: "01",
+    label: "Consult",
+    detail: "Sit with us (free). Tell us the room and what you need.",
+  },
+  {
+    number: "02",
+    label: "Design & quote",
+    detail: "We design around your space, size and taste, then quote.",
+  },
+  {
+    number: "03",
+    label: "Craft, deliver & install",
+    detail: "Made in our workshop, delivered and fitted in your room.",
+  },
 ];
 
 export function BespokeHighlight() {
@@ -35,22 +48,28 @@ export function BespokeHighlight() {
             Your space. Your dimensions. Your taste.
           </p>
 
-          <ul className="mt-12">
+          <ol className="mt-12">
             {steps.map((step) => (
               <li
-                key={step.label}
-                className="grid grid-cols-[minmax(0,10rem)_minmax(0,1fr)] gap-5 border-t border-ivory/15 py-5"
+                key={step.number}
+                className="grid grid-cols-[auto_minmax(0,1fr)] gap-5 border-t border-ivory/15 py-6 sm:gap-7"
               >
-                <span className="eyebrow pt-1 text-ivory/55">{step.label}</span>
-                <span className="text-sm leading-relaxed text-ivory/80">
-                  {step.detail}
-                </span>
+                <span className="eyebrow pt-1.5 text-brass">{step.number}</span>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-2xl leading-snug text-ivory">
+                    {step.label}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ivory/75">
+                    {step.detail}
+                  </p>
+                </div>
               </li>
             ))}
-          </ul>
+          </ol>
 
           <a
             href="#contact"
+            onClick={() => requestProjectType("Fully Bespoke")}
             className="btn-primary mt-12 self-start bg-brass text-accent-foreground hover:bg-ivory"
           >
             Start Your Custom Piece
