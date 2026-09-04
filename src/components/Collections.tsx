@@ -72,7 +72,7 @@ export function Collections() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Five families of furniture, each made to order in our own workshop.
+            Five families of furniture — on the showroom floor, or made to order in our own workshop. Tap any panel to enquire.
           </p>
         </Reveal>
 
