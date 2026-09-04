@@ -1,15 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { site, whatsappLink } from "@/lib/site";
+import { site, whatsappHref, whatsappLink } from "@/lib/site";
+import { onProjectType, projectTypes } from "@/lib/enquiry";
 import { Reveal } from "./Reveal";
-
-const projectTypes = [
-  "Living Room",
-  "Bedroom",
-  "Dining",
-  "Office & Study",
-  "Fully Bespoke",
-];
 
 const fieldClass =
   "min-h-12 w-full border-b border-ivory/25 bg-transparent pb-2 text-[0.9375rem] text-ivory placeholder:text-ivory/40 focus:border-brass focus:outline-none";
@@ -19,9 +12,21 @@ export function FinalCTA() {
     name: "",
     phone: "",
     email: "",
-    type: projectTypes[4],
+    type: "",
     message: "",
   });
+  const [sent, setSent] = useState<string | null>(null);
+  const [blocked, setBlocked] = useState<string | null>(null);
+  const typeRef = useRef<HTMLSelectElement>(null);
+
+  // A collection card or the bespoke CTA can pre-select the project type.
+  useEffect(
+    () =>
+      onProjectType((type) => {
+        setForm((prev) => ({ ...prev, type }));
+      }),
+    [],
+  );
 
   // No backend is configured: the enquiry is handed to WhatsApp using the
   // brand's own number. Swap this handler for an API call when one exists.
@@ -35,7 +40,15 @@ export function FinalCTA() {
       `Project: ${form.type}`,
       form.message ? `Details: ${form.message}` : null,
     ].filter(Boolean);
-    window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
+    const href = whatsappLink(lines.join("\n"));
+    const opened = window.open(href, "_blank", "noopener,noreferrer");
+    if (opened) {
+      setBlocked(null);
+      setSent("Your enquiry opened in WhatsApp — press send there and we'll reply shortly.");
+    } else {
+      setSent(null);
+      setBlocked(href);
+    }
   };
 
   return (
@@ -56,13 +69,26 @@ export function FinalCTA() {
 
             <dl className="mt-12 space-y-5">
               <div>
-                <dt className="eyebrow text-ivory/45">Call or WhatsApp</dt>
+                <dt className="eyebrow text-ivory/45">Call</dt>
                 <dd className="mt-2">
                   <a
                     href={`tel:${site.phoneHref}`}
                     className="font-serif text-2xl transition-colors duration-300 hover:text-brass"
                   >
                     {site.phoneDisplay}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="eyebrow text-ivory/45">WhatsApp</dt>
+                <dd className="mt-2">
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[0.9375rem] text-ivory/80 transition-colors duration-300 hover:text-brass"
+                  >
+                    Message us on WhatsApp
                   </a>
                 </dd>
               </div>
@@ -79,7 +105,9 @@ export function FinalCTA() {
               </div>
               <div>
                 <dt className="eyebrow text-ivory/45">Showroom</dt>
-                <dd className="mt-2 text-[0.9375rem] text-ivory/80">{site.address}</dd>
+                <dd className="mt-2 text-[0.9375rem] text-ivory/80">
+                  Visit the showroom: {site.address}
+                </dd>
               </div>
             </dl>
           </Reveal>
@@ -138,10 +166,17 @@ export function FinalCTA() {
                 </label>
                 <select
                   id="type"
+                  ref={typeRef}
+                  required
                   value={form.type}
                   onChange={(e) => setForm({ ...form, type: e.target.value })}
-                  className={`mt-3 appearance-none ${fieldClass}`}
+                  className={`mt-3 appearance-none ${fieldClass} ${
+                    form.type ? "" : "text-ivory/40"
+                  }`}
                 >
+                  <option value="" disabled className="bg-teal text-ivory">
+                    Select a project type
+                  </option>
                   {projectTypes.map((type) => (
                     <option key={type} value={type} className="bg-teal text-ivory">
                       {type}
@@ -175,6 +210,24 @@ export function FinalCTA() {
                 <p className="mt-4 text-xs leading-relaxed text-ivory/45">
                   Sends your details to our team on WhatsApp.
                 </p>
+
+                <p aria-live="polite" className="mt-3 text-xs leading-relaxed text-brass">
+                  {sent}
+                </p>
+                {blocked ? (
+                  <p className="mt-1 text-xs leading-relaxed text-ivory/70">
+                    WhatsApp didn’t open automatically.{" "}
+                    <a
+                      href={blocked}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-brass underline-offset-4 hover:text-brass"
+                    >
+                      Open your enquiry in WhatsApp
+                    </a>
+                    .
+                  </p>
+                ) : null}
               </div>
             </form>
           </Reveal>
