@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { site, whatsappHref, whatsappLink } from "@/lib/site";
 import { onProjectType, projectTypes } from "@/lib/enquiry";
@@ -17,7 +17,6 @@ export function FinalCTA() {
   });
   const [sent, setSent] = useState<string | null>(null);
   const [blocked, setBlocked] = useState<string | null>(null);
-  const typeRef = useRef<HTMLSelectElement>(null);
 
   // A collection card or the bespoke CTA can pre-select the project type.
   useEffect(
@@ -166,7 +165,6 @@ export function FinalCTA() {
                 </label>
                 <select
                   id="type"
-                  ref={typeRef}
                   required
                   value={form.type}
                   onChange={(e) => setForm({ ...form, type: e.target.value })}
