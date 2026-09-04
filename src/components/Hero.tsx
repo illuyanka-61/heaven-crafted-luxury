@@ -21,8 +21,7 @@ export function Hero() {
           <p className="eyebrow text-brass">{site.tagline}</p>
 
           <h1 className="mt-7 font-serif text-[2.75rem] leading-[1.02] text-ivory sm:text-6xl lg:text-[5.25rem]">
-            Furniture, Made 
-            for Your Space
+            Bespoke Furniture, Crafted Around Your Space
           </h1>
 
           <p className="mt-7 max-w-lg text-[0.9375rem] leading-relaxed text-ivory/75 sm:text-base">
