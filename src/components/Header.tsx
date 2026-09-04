@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { navItems } from "@/lib/site";
+import { navItems, whatsappHref } from "@/lib/site";
 import { Wordmark } from "./Wordmark";
 import { MobileMenu } from "./MobileMenu";
 
