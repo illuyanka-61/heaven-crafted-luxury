@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero.jpg";
-import { site, whatsappHref } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -36,14 +36,6 @@ export function Hero() {
             </a>
             <a href="#collections" className="btn-outline">
               Explore Collections
-            </a>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link self-start text-ivory/75 transition-colors duration-300 hover:text-brass sm:ml-2"
-            >
-              WhatsApp Us
             </a>
           </div>
         </div>
